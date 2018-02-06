@@ -7,10 +7,10 @@ int longestLen;
 /* find the lonest substring */
 int lengthOFLongestSubstring(string s)
 {
-	for(int i = 0; i < s.length() - 1; i++)
+	for(int i = 0; i < s.length(); i++)
 	{
 		string substring = "";
-		for(int j = i + 1; j < s.length(); j++)
+		for(int j = i; j < s.length(); j++)
 		{
 			/* whether character in the substring */
 			bool existFlag = false;
@@ -32,8 +32,12 @@ int lengthOFLongestSubstring(string s)
 			}
 		}
 		/* get a substring and record its length */
-		longestLen = substring.length();
+		if(substring.length() > longestLen)
+		{
+			longestLen = substring.length();
+		}
 	}
+	return longestLen;
 }
 
 int main()
